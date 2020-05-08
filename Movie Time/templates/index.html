@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <title>Movie Time</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 100px;
+    z-index: 1000;
+}
+header .logo
+{
+    max-width: 120px;
+}
+header .toggle
+{
+    max-width: 60px;
+    cursor: pointer;
+}
+header .logo img,
+header .toggle img
+{
+    max-width: 100%;
+}
+.banner
+{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    background: url(static/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.banner .content
+{
+    max-width: 550px;
+}
+.col  input[type = "text"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: left;
+	border: 2px solid #ffffff;
+	padding: 14px 10px;
+	width: 400px;
+	height: 50px;
+	outline: none;
+	color: #ffffff;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+.input-field
+{
+    color: #ffffff;
+}
+.submit-btn{
+    width: 50%;
+    margin-left: 90px;
+    margin-top: 40px;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	background: linear-gradient(to right,#e20c0c, #ffffff);
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+</style>
+<body>
+    <header>
+
+    </header>
+    <div class="banner">
+      <div class="content">
+        <div class="section no-pad-bot" id="index-banner">
+          <div class="container">
+            <br><br>
+        <div class="row">
+          <form action='/predict' method="post" class="col s12">
+            <div class="row">
+              <div class="input-field col s4">
+                  <label for="first_name"><b>Movie Name</b></label>
+                  <br>
+                <input placeholder="Enter the name of the movie" name="Name o the movie" id="first_name" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+      
+                <label for="last_name"><b>Year</b></label>
+                  <br>
+                <input id="last_name" name="Oxygen" placeholder=""  type="text" class="validate">
+              </div>
+      
+              <div class="input-field col s4">
+                  <label for="_name"><b>Type of the Movie</b></label>
+                  <br>
+                <input id="_name" name="Humidity" placeholder="" type="text" class="validate">
+      
+              </div>
+                <div class="input-field col s4">
+                  <label for="_name"><b>Rating</b></label>
+                  <br>
+                <input id="_rate" name="Humidity" placeholder="" type="text" class="validate">
+
+              </div>
+      
+            </div>
+      
+            <div class="row center">
+      
+                <button type="submit" class="submit-btn">Rate for Me</button>
+            </div>
+          </form>
+        </div>
+      
+            <br>
+              {{pred}}<br>
+      
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
